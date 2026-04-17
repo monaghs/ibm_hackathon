@@ -21,6 +21,21 @@ cd "$SCRIPT_DIR"
 
 echo -e "${BLUE}📂 Working directory:${NC} $(pwd)"
 
+# Check if git repository exists
+if [ ! -d .git ]; then
+    echo -e "${RED}❌ Error: Not a git repository${NC}"
+    echo -e "${YELLOW}Run: git init${NC}"
+    exit 1
+fi
+
+# Check if remote exists
+if ! git remote get-url origin &> /dev/null; then
+    echo -e "${RED}❌ Error: No remote 'origin' configured${NC}"
+    echo -e "${YELLOW}To add a remote, run:${NC}"
+    echo -e "  git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git"
+    exit 1
+fi
+
 # Check if there are any changes
 if [[ -z $(git status -s) ]]; then
     echo -e "${YELLOW}⚠️  No changes to commit${NC}"
@@ -48,11 +63,26 @@ git add .
 echo -e "${BLUE}💾 Committing changes...${NC}"
 git commit -m "$COMMIT_MSG"
 
-# Push to GitHub
-echo -e "${BLUE}🚀 Pushing to GitHub...${NC}"
-git push origin main
+# Get current branch
+CURRENT_BRANCH=$(git branch --show-current)
 
-echo -e "\n${GREEN}✅ Successfully pushed to GitHub!${NC}"
-echo -e "${GREEN}🔗 View at: https://github.com/monaghs/ibm_hackathon${NC}"
+# Push to GitHub
+echo -e "${BLUE}🚀 Pushing to GitHub (branch: $CURRENT_BRANCH)...${NC}"
+if git push origin "$CURRENT_BRANCH" 2>&1; then
+    echo -e "\n${GREEN}✅ Successfully pushed to GitHub!${NC}"
+    REMOTE_URL=$(git remote get-url origin)
+    echo -e "${GREEN}🔗 Remote: $REMOTE_URL${NC}"
+else
+    echo -e "\n${RED}❌ Push failed!${NC}"
+    echo -e "${YELLOW}Common issues:${NC}"
+    echo -e "  1. Repository doesn't exist on GitHub"
+    echo -e "  2. No permission to push"
+    echo -e "  3. Need to authenticate (use Personal Access Token)"
+    echo -e "\n${YELLOW}To fix:${NC}"
+    echo -e "  • Create repo at: https://github.com/new"
+    echo -e "  • Update remote: git remote set-url origin https://github.com/YOUR_USERNAME/YOUR_REPO.git"
+    echo -e "  • Or use GitHub CLI: gh repo create"
+    exit 1
+fi
 
 # Made with Bob
