@@ -1,0 +1,33 @@
+# Core dependencies
+python-dotenv>=0.19.0
+pyyaml>=5.4
+
+# Web scraping and research
+requests>=2.25.0
+beautifulsoup4>=4.9.0
+selenium>=3.141.0
+lxml>=4.6.0
+
+# Data processing
+pandas>=1.1.0
+numpy>=1.19.0
+
+# Dashboard and visualization
+streamlit>=1.10.0
+plotly>=5.0.0
+
+# Document generation
+python-docx>=0.8.11
+reportlab>=3.5.0
+Pillow>=8.0.0
+
+# PDF conversion (optional)
+pypdf2>=1.26.0
+
+# CLI interface
+rich>=10.0.0
+questionary>=1.10.0
+
+# Utilities
+python-dateutil>=2.8.0
+validators>=0.18.0

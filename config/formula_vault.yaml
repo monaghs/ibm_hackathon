@@ -1,0 +1,139 @@
+# Formula Vault - Industry-agnostic ROI calculation formulas
+# Each vault contains standardized formulas for different value types
+
+efficiency_vault:
+  time_savings:
+    name: "Time Savings Calculation"
+    formula: "(manual_hours * hourly_rate) - (automated_hours * hourly_rate)"
+    variables:
+      - manual_hours: "Current manual hours per task"
+      - automated_hours: "Automated hours per task"
+      - hourly_rate: "Fully loaded hourly rate ($/hour)"
+    unit: "USD per period"
+    
+  labor_cost_reduction:
+    name: "Labor Cost Reduction"
+    formula: "(current_fte_count * annual_salary) - (future_fte_count * annual_salary)"
+    variables:
+      - current_fte_count: "Current FTE count"
+      - future_fte_count: "Future FTE count after automation"
+      - annual_salary: "Average annual salary per FTE"
+    unit: "USD annually"
+    
+  process_efficiency:
+    name: "Process Efficiency Gain"
+    formula: "((old_cycle_time - new_cycle_time) / old_cycle_time) * 100"
+    variables:
+      - old_cycle_time: "Current process cycle time"
+      - new_cycle_time: "Improved process cycle time"
+    unit: "Percentage improvement"
+
+risk_vault:
+  downtime_cost:
+    name: "Downtime Cost Avoidance"
+    formula: "probability_of_failure * (downtime_hours * revenue_per_hour)"
+    variables:
+      - probability_of_failure: "Annual probability of system failure (0-1)"
+      - downtime_hours: "Expected hours of downtime per incident"
+      - revenue_per_hour: "Revenue generated per hour"
+    unit: "USD annually"
+    
+  compliance_risk:
+    name: "Compliance Risk Mitigation"
+    formula: "probability_of_violation * average_fine_amount"
+    variables:
+      - probability_of_violation: "Probability of compliance violation (0-1)"
+      - average_fine_amount: "Average regulatory fine amount"
+    unit: "USD risk reduction"
+    
+  data_breach_prevention:
+    name: "Data Breach Cost Avoidance"
+    formula: "breach_probability * (records_at_risk * cost_per_record)"
+    variables:
+      - breach_probability: "Annual probability of data breach (0-1)"
+      - records_at_risk: "Number of customer records at risk"
+      - cost_per_record: "Average cost per breached record"
+    unit: "USD annually"
+
+growth_vault:
+  time_to_market:
+    name: "Faster Time-to-Market Value"
+    formula: "weeks_accelerated * (weekly_revenue / 52)"
+    variables:
+      - weeks_accelerated: "Weeks saved in product launch"
+      - weekly_revenue: "Expected annual revenue from product"
+    unit: "USD revenue acceleration"
+    
+  revenue_enablement:
+    name: "Revenue Enablement"
+    formula: "new_customers * average_deal_size * conversion_rate"
+    variables:
+      - new_customers: "Additional customers reached"
+      - average_deal_size: "Average deal size"
+      - conversion_rate: "Expected conversion rate (0-1)"
+    unit: "USD annually"
+    
+  market_expansion:
+    name: "Market Expansion Value"
+    formula: "addressable_market_size * market_share_gain * profit_margin"
+    variables:
+      - addressable_market_size: "Total addressable market size"
+      - market_share_gain: "Expected market share gain (0-1)"
+      - profit_margin: "Profit margin percentage (0-1)"
+    unit: "USD annually"
+
+# Industry Benchmarks (Gartner/IDC standards)
+industry_benchmarks:
+  manufacturing:
+    average_downtime_cost_per_hour: 260000
+    average_fte_hourly_rate: 45
+    supply_chain_disruption_cost: 2000000
+    quality_defect_cost_per_unit: 150
+    
+  retail:
+    inventory_carrying_cost_percentage: 0.25
+    average_transaction_value: 75
+    customer_acquisition_cost: 50
+    cart_abandonment_rate: 0.69
+    
+  financial_services:
+    cost_per_transaction: 4.50
+    fraud_loss_percentage: 0.08
+    compliance_cost_per_employee: 10000
+    customer_lifetime_value: 5000
+    
+  healthcare:
+    cost_per_patient_record: 429
+    average_claim_processing_cost: 25
+    readmission_cost: 15000
+    staff_turnover_cost_percentage: 0.75
+    
+  technology:
+    developer_hourly_rate: 85
+    infrastructure_cost_per_server: 5000
+    customer_churn_cost_percentage: 0.15
+    support_ticket_cost: 15
+    
+  telecommunications:
+    network_outage_cost_per_minute: 9000
+    customer_churn_rate: 0.22
+    average_revenue_per_user: 50
+    support_call_cost: 8
+
+# Payback Period Calculation
+payback_calculation:
+  formula: "total_project_cost / monthly_value_generated"
+  variables:
+    - total_project_cost: "Total implementation cost"
+    - monthly_value_generated: "Monthly value from BVA"
+  unit: "Months to payback"
+
+# ROI Calculation
+roi_calculation:
+  formula: "((total_value - total_cost) / total_cost) * 100"
+  variables:
+    - total_value: "Total value generated over period"
+    - total_cost: "Total cost of solution"
+  unit: "Percentage ROI"
+
+# Made with Bob

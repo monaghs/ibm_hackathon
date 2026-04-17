@@ -1,0 +1,55 @@
+# Client Configuration Template
+# This file stores client-specific information and preferences
+
+client_info:
+  name: ""
+  industry: ""
+  product: ""
+  region: ""
+  company_size: ""
+  annual_revenue: 0
+
+# Research sources for company data
+research_sources:
+  sec_filings: true
+  investor_relations: true
+  news_articles: true
+  industry_reports: true
+  
+# Value pillars to focus on (auto-detected from research)
+value_pillars:
+  - priority: ""
+    description: ""
+    relevance_score: 0
+
+# Project-specific parameters
+project_details:
+  ibm_solution: ""
+  implementation_timeline_months: 0
+  estimated_project_cost: 0
+  
+# Calculation preferences
+calculation_settings:
+  time_period_years: 3
+  discount_rate: 0.10
+  risk_adjustment_factor: 0.85
+  
+# Report customization
+report_settings:
+  include_executive_summary: true
+  include_detailed_calculations: true
+  include_industry_benchmarks: true
+  include_risk_analysis: true
+  brand_colors:
+    primary: "#0F62FE"  # IBM Blue
+    secondary: "#161616"  # IBM Gray
+  logo_path: ""
+  
+# Export preferences
+export_settings:
+  default_format: "docx"
+  enable_pdf_conversion: true
+  include_appendix: true
+  watermark: false
+
+# Made with Bob
